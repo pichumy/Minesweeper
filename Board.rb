@@ -63,10 +63,28 @@ class Board
     @grid[row][col] = val
   end
 
+  def reveal(pos_nest)
+    pos_nest.each do |pos|
+      
+    end
+
+  end
+
+  def check_surrounding()
+    (-1..1).each do |row_diff|
+      (-1..1).each do |col_diff|
+        new_pos = [row+row_diff, col_diff + col]
+        if valid_pos?(new_pos)  && self[new_pos].class == Tile
+          counter += 1 if self[new_pos].bomb
+        end
+      end
+    end
+  end
+
   def render
     @grid.each do |row|
       row.each do |tile|
-        print tile.to_s
+        print [tile.to_s]
         print ' '
       end
       print "\n"

@@ -1,10 +1,10 @@
 
 class Tile
 
-  attr_reader :bomb 
+  attr_reader :bomb
 
   def initialize(val)
-    @value = val
+    @value = val 
     @display = " "
     @bomb = true if val == :b
   end
